@@ -2,18 +2,37 @@ function getComputerChoice() {
     // Create a variable that stores random numbers between 1 and 3
     let numberedChoice = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
     // Create the choice variable
-    let choice;
+    let computerChoice;
     // Switch if the number is 1: 'rock'; is 2: 'paper'; is 3: 'scissors'
     switch (numberedChoice) {
         case 1:
-            choice = 'rock';
+            computerChoice = 'rock';
             break;
         case 2:
-            choice = 'paper';
+            computerChoice = 'paper';
             break;
         case 3:
-            choice = 'scissors';
+            computerChoice = 'scissors';
             break;
     }
-    return choice;
+    return computerChoice;
 }
+
+function getHumanChoice() {
+    // Prompt to number so it is more specific
+    let humanChoice = prompt('1 for "rock"\n2 for "paper"\n3 for "scissors"','');
+    switch (humanChoice) {
+        case '1':
+            humanChoice = 'rock';
+            break;
+        case '2':
+            humanChoice = 'paper';
+            break;
+        case '3':
+            humanChoice = 'scissors';
+            break;
+    }
+    return humanChoice;
+}
+
+console.log(getHumanChoice())
