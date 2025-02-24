@@ -22,7 +22,10 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     // Prompt to lower case so it is case-insensitive
-    let humanChoice = prompt('Choose between: "rock", "paper", "scissors"','').toLowerCase();
+    let humanChoice = prompt('Choose between: "rock", "paper", "scissors"','');
+    if (humanChoice === null) {
+        console.log('Canceled.');
+    } else humanChoice = humanChoice.toLowerCase();
     return humanChoice;
 }
 
