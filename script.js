@@ -19,23 +19,55 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    // Prompt to number so it is more specific
-    let humanChoice = prompt('1 for "rock"\n2 for "paper"\n3 for "scissors"','');
-    // Switch if the number is 1: 'rock'; is 2: 'paper'; is 3: 'scissors'
-    switch (humanChoice) {
-        case '1':
-            humanChoice = 'rock';
-            break;
-        case '2':
-            humanChoice = 'paper';
-            break;
-        case '3':
-            humanChoice = 'scissors';
-            break;
-    }
+    // Prompt to lower case so it is case-insensitive
+    let humanChoice = prompt('Choose between: "rock", "paper", "scissors"','').toLowerCase();
     return humanChoice;
+}
+
+function playRound(humanChoice, computerChoice) {
+    // Assign the result to a variable
+    let resultString;
+    // Assign result strings to variables so coding becomes easier
+    const paperWins = 'Paper beats Rock.';
+    const scissorsWins = 'Scissors beats Paper.';
+    const rockWins = 'Rock beats Scissors.';
+    // Check who wins
+    if (humanChoice == 'rock' && computerChoice == 'paper') {
+        resultString = 'You lose! ' + paperWins;
+        computerScore++;
+
+    } else if (humanChoice == 'paper' && computerChoice == 'scissors') {
+        resultString = 'You lose! '+ scissorsWins;
+        computerScore++;
+
+    } else if (humanChoice == 'scissors' && computerChoice == 'rock') {
+        resultString = 'You lose! ' + rockWins;
+        computerScore++;
+
+    } else if (humanChoice == computerChoice) {
+        resultString = "It's a draw!";
+
+    } else if (humanChoice == 'paper' && computerChoice == 'rock') {
+        resultString = 'You won! ' + paperWins;
+        humanScore++;
+
+    } else if (humanChoice == 'scissors' && computerChoice == 'paper') {
+        resultString = 'You won! ' + scissorsWins;
+        humanScore++;
+
+    } else if (humanChoice == 'rock' && computerChoice == 'scissors') {
+        resultString = 'You won! ' + rockWins;
+        humanScore++;
+    }
+    console.log('You chose ' + humanChoice)
+    console.log('The computer chose ' + computerChoice)
+    console.log(resultString)
 }
 
 humanScore = 0
 computerScore = 0
 
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
