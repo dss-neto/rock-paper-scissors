@@ -1,8 +1,10 @@
 function getComputerChoice() {
     // Create a variable that stores random numbers between 1 and 3
     let numberedChoice = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+
     // Create the choice variable
     let computerChoice;
+
     // Switch if the number is 1: 'rock'; is 2: 'paper'; is 3: 'scissors'
     switch (numberedChoice) {
         case 1:
@@ -27,10 +29,12 @@ function getHumanChoice() {
 function playRound(humanChoice, computerChoice) {
     // Assign the result to a variable
     let resultString;
+
     // Assign result strings to variables so coding becomes easier
     const paperWins = 'Paper beats Rock.';
     const scissorsWins = 'Scissors beats Paper.';
     const rockWins = 'Rock beats Scissors.';
+
     // Check who wins
     if (humanChoice == 'rock' && computerChoice == 'paper') {
         resultString = 'You lose! ' + paperWins;
@@ -59,15 +63,25 @@ function playRound(humanChoice, computerChoice) {
         resultString = 'You won! ' + rockWins;
         humanScore++;
     }
-    console.log('You chose ' + humanChoice)
-    console.log('The computer chose ' + computerChoice)
-    console.log(resultString)
+    console.log(' ')
+    console.log('You chose ' + humanChoice);
+    console.log('The computer chose ' + computerChoice);
+    console.log(resultString);
+    console.log(`Your score: ${humanScore}`);
+    console.log(`Computer score: ${computerScore}`);
 }
 
-humanScore = 0
-computerScore = 0
+function playGame() {
+    humanScore = 0;
+    computerScore = 0;
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+    for (let i = 0; i < 5; i++) {
+        // Assign the human and computer choice to constant variables
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+        playRound(humanSelection, computerSelection);
+    }
+}
+
+playGame();
