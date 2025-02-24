@@ -17,5 +17,3 @@ function getComputerChoice() {
     }
     return choice;
 }
-
-console.log(getComputerChoice);
