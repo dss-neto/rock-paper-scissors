@@ -21,6 +21,7 @@ function getComputerChoice() {
 function getHumanChoice() {
     // Prompt to number so it is more specific
     let humanChoice = prompt('1 for "rock"\n2 for "paper"\n3 for "scissors"','');
+    // Switch if the number is 1: 'rock'; is 2: 'paper'; is 3: 'scissors'
     switch (humanChoice) {
         case '1':
             humanChoice = 'rock';
@@ -34,5 +35,3 @@ function getHumanChoice() {
     }
     return humanChoice;
 }
-
-console.log(getHumanChoice())
