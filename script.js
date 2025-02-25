@@ -1,25 +1,13 @@
 function main() {
 
     function getComputerChoice() {
-        // Create a variable that stores random numbers between 1 and 3
-        let numberedChoice = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+        // Create a variable that stores random numbers between 0 and 2
+        // Inclusive range random formula: Math.floor(Math.random() * (max(2) - min(0) + 1)) + min(0).
+        let numberedChoice = Math.floor(Math.random() * (2 + 1));
 
-        // Create the choice variable
-        let computerChoice;
+        const choiceArray = ['rock', 'paper', 'scissors'];
 
-        // Switch if the number is 1: 'rock'; is 2: 'paper'; is 3: 'scissors'
-        switch (numberedChoice) {
-            case 1:
-                computerChoice = 'rock';
-                break;
-            case 2:
-                computerChoice = 'paper';
-                break;
-            case 3:
-                computerChoice = 'scissors';
-                break;
-        }
-        return computerChoice;
+        return choiceArray[numberedChoice];
     }
 
     function getHumanChoice() {
