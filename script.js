@@ -1,4 +1,9 @@
 function main() {
+    const divButton = document.getElementById('divButton');
+    const divResult = document.getElementById('divResult')
+    let humanScore = 0;
+    let computerScore = 0;
+
 
     function getComputerChoice() {
         // Create a variable that stores random numbers between 0 and 2
@@ -24,9 +29,9 @@ function main() {
         let resultString;
 
         // Assign result strings to variables so coding becomes easier
-        const paperWins = 'Paper beats Rock.';
-        const scissorsWins = 'Scissors beats Paper.';
-        const rockWins = 'Rock beats Scissors.';
+        const paperWins = 'paper beats rock.';
+        const scissorsWins = 'scissors beats paper.';
+        const rockWins = 'rock beats Scissors.';
 
         // Check who wins
         if (humanChoice == 'rock' && computerChoice == 'paper') {
@@ -62,6 +67,19 @@ function main() {
         console.log(resultString);
         console.log(`Your score: ${humanScore}`);
         console.log(`Computer score: ${computerScore}`);
+
+        
+        divResult.textContent = `You chose ${humanChoice}\nThe computer chose ${computerChoice}\n${resultString}\nYour score: ${humanScore}\nComputer score: ${computerScore}`;
+        
+        if (humanScore === 5) {
+            divResult.textContent = '5 scores reached!\n And the winner is... the Human!';
+            humanScore = 0;
+            computerScore = 0;
+        } else if (computerScore === 5) {
+            divResult.textContent = '5 scores reached!\nAnd the winner is... the Computer.';
+            humanScore = 0;
+            computerScore = 0;
+        }
     }
 
     function playGame() {
@@ -77,7 +95,22 @@ function main() {
         }
     }
 
-    playGame();
+    divButton.addEventListener('click', (e) => {
+        let target = e.target;
+        switch (target.id) {
+            case 'rockBtn':
+                playRound('rock', getComputerChoice());
+                break;
+            case 'paperBtn':
+                playRound('paper', getComputerChoice());
+                break;
+            case 'scissorsBtn':
+                playRound('scissors', getComputerChoice());
+                break;
+        }
+    });
+
+    //playGame();
 }
 
 main();
