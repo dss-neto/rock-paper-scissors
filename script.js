@@ -15,15 +15,6 @@ function main() {
         return choiceArray[numberedChoice];
     }
 
-    function getHumanChoice() {
-        // Prompt to lower case so it is case-insensitive
-        let humanChoice = prompt('Choose between: "rock", "paper", "scissors"','');
-        if (humanChoice === null) {
-            console.log('Canceled.');
-        } else humanChoice = humanChoice.toLowerCase();
-        return humanChoice;
-    }
-
     function playRound(humanChoice, computerChoice) {
         // Assign the result to a variable
         let resultString;
@@ -61,14 +52,6 @@ function main() {
             resultString = 'You won! ' + rockWins;
             humanScore++;
         }
-        console.log(' ');
-        console.log('You chose ' + humanChoice);
-        console.log('The computer chose ' + computerChoice);
-        console.log(resultString);
-        console.log(`Your score: ${humanScore}`);
-        console.log(`Computer score: ${computerScore}`);
-
-        
         divResult.textContent = `You chose ${humanChoice}\nThe computer chose ${computerChoice}\n${resultString}\nYour score: ${humanScore}\nComputer score: ${computerScore}`;
         
         if (humanScore === 5) {
@@ -79,19 +62,6 @@ function main() {
             divResult.textContent = '5 scores reached!\nAnd the winner is... the Computer.';
             humanScore = 0;
             computerScore = 0;
-        }
-    }
-
-    function playGame() {
-        humanScore = 0;
-        computerScore = 0;
-
-        for (let i = 0; i < 5; i++) {
-            // Assign the human and computer choice to constant variables
-            const humanSelection = getHumanChoice();
-            const computerSelection = getComputerChoice();
-
-            playRound(humanSelection, computerSelection);
         }
     }
 
@@ -109,8 +79,6 @@ function main() {
                 break;
         }
     });
-
-    //playGame();
 }
 
 main();
