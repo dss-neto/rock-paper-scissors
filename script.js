@@ -26,15 +26,15 @@ function main() {
 
         // Check who wins
         if (humanChoice == 'rock' && computerChoice == 'paper') {
-            resultString = 'You lose! ' + paperWins;
+            resultString = 'You lost! ' + paperWins;
             computerScore++;
 
         } else if (humanChoice == 'paper' && computerChoice == 'scissors') {
-            resultString = 'You lose! '+ scissorsWins;
+            resultString = 'You lost! '+ scissorsWins;
             computerScore++;
 
         } else if (humanChoice == 'scissors' && computerChoice == 'rock') {
-            resultString = 'You lose! ' + rockWins;
+            resultString = 'You lost! ' + rockWins;
             computerScore++;
 
         } else if (humanChoice == computerChoice) {
