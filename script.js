@@ -45,6 +45,7 @@ function main() {
             humanScore++
         } else if (whoBeats[computerChoice]["beats"] === humanChoice) {
             resultString = "You lost! " + whoBeats[computerChoice]["resultStr"];
+            computerScore++
         } else {
             resultString = "It's a draw!";
         }
@@ -63,17 +64,8 @@ function main() {
     }
 
     divButton.addEventListener('click', (e) => {
-        let target = e.target;
-        switch (target.id) {
-            case 'rockBtn':
-                playRound('rock', getComputerChoice());
-                break;
-            case 'paperBtn':
-                playRound('paper', getComputerChoice());
-                break;
-            case 'scissorsBtn':
-                playRound('scissors', getComputerChoice());
-                break;
+        if (e.target.nodeName === "BUTTON") {
+            playRound(e.target.id, getComputerChoice());
         }
     });
 }
