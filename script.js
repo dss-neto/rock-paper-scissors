@@ -22,36 +22,33 @@ function main() {
         // Assign result strings to variables so coding becomes easier
         const paperWins = 'paper beats rock.';
         const scissorsWins = 'scissors beats paper.';
-        const rockWins = 'rock beats Scissors.';
+        const rockWins = 'rock beats scissors.';
 
-        // Check who wins
-        if (humanChoice == 'rock' && computerChoice == 'paper') {
-            resultString = 'You lost! ' + paperWins;
-            computerScore++;
+        const whoBeats = {
+            rock: {
+                beats: "scissors",
+                resultStr: rockWins
+            },
+            paper: {
+                beats: "rock",
+                resultStr: paperWins
+            },
+            scissors: {
+                beats: "paper",
+                resultStr: scissorsWins
+            }
+        };
 
-        } else if (humanChoice == 'paper' && computerChoice == 'scissors') {
-            resultString = 'You lost! '+ scissorsWins;
-            computerScore++;
-
-        } else if (humanChoice == 'scissors' && computerChoice == 'rock') {
-            resultString = 'You lost! ' + rockWins;
-            computerScore++;
-
-        } else if (humanChoice == computerChoice) {
+        // Check the winner
+        if (whoBeats[humanChoice]["beats"] === computerChoice) {
+            resultString = "You won! " + whoBeats[humanChoice]["resultStr"];
+            humanScore++
+        } else if (whoBeats[computerChoice]["beats"] === humanChoice) {
+            resultString = "You lost! " + whoBeats[computerChoice]["resultStr"];
+        } else {
             resultString = "It's a draw!";
-
-        } else if (humanChoice == 'paper' && computerChoice == 'rock') {
-            resultString = 'You won! ' + paperWins;
-            humanScore++;
-
-        } else if (humanChoice == 'scissors' && computerChoice == 'paper') {
-            resultString = 'You won! ' + scissorsWins;
-            humanScore++;
-
-        } else if (humanChoice == 'rock' && computerChoice == 'scissors') {
-            resultString = 'You won! ' + rockWins;
-            humanScore++;
         }
+
         divResult.textContent = `You chose ${humanChoice}\nThe computer chose ${computerChoice}\n${resultString}\nYour score: ${humanScore}\nComputer score: ${computerScore}`;
         
         if (humanScore === 5) {
