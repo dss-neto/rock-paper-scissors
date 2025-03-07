@@ -1,4 +1,9 @@
-# rock-paper-scissors
-This project is a simple rock-paper-scissors game.
+# Project: Rock Paper Scissors
 
-The computer choices are done with math's ".random()" method.
+A simple [rock paper scissors](https://en.wikipedia.org/wiki/Rock_paper_scissors) game. Part of [The Odin's Project](https://www.theodinproject.com) curriculum.
+
+## Description
+
+You play against the computer. Whoever gets 5 points first wins.
+
+The computer choises are done with [Math.random()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random) method.
