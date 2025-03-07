@@ -6,7 +6,7 @@ function main() {
 
   function getComputerChoice() {
     // Create a variable that stores random numbers between 0 and 2
-    // Inclusive range random formula: Math.floor(Math.random() * (max(2) - min(0) + 1)) + min(0).
+    // Inclusive range random formula: Math.floor(Math.random() * (max(2) - min(0) + 1)) + min(0)
     let numberedChoice = Math.floor(Math.random() * (2 + 1));
 
     const choiceArray = ["rock", "paper", "scissors"];
