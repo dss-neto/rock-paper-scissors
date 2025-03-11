@@ -15,6 +15,10 @@ function main() {
   }
 
   function playRound(humanChoice, computerChoice) {
+    const didHumanBeatComputer = () =>
+      whoBeats[humanChoice]["beats"] === computerChoice;
+    const didComputerBeatHuman = () =>
+      whoBeats[computerChoice]["beats"] === humanChoice;
     // Assign the result to a variable
     let resultString;
 
@@ -39,10 +43,10 @@ function main() {
     };
 
     // Check the winner
-    if (whoBeats[humanChoice]["beats"] === computerChoice) {
+    if (didHumanBeatComputer()) {
       resultString = "You won! " + whoBeats[humanChoice]["resultStr"];
       humanScore++;
-    } else if (whoBeats[computerChoice]["beats"] === humanChoice) {
+    } else if (didComputerBeatHuman()) {
       resultString = "You lost! " + whoBeats[computerChoice]["resultStr"];
       computerScore++;
     } else {
@@ -65,7 +69,8 @@ function main() {
   }
 
   divButton.addEventListener("click", (e) => {
-    if (e.target.nodeName === "BUTTON") {
+    const wasButtonPressed = () => e.target.tagName === "BUTTON";
+    if (wasButtonPressed()) {
       playRound(e.target.id, getComputerChoice());
     }
   });
